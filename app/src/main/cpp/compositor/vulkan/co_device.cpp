@@ -18,7 +18,7 @@ Vulkan::Compositor Vulkan::Compositor::compositor;
 ExternalMemoryAndroid external_mem_android;
 
 
-VkResult Vulkan::Compositor::vkCreateVulkanAndroidSurface(VkInstance pInstance, const VkAndroidSurfaceCreateInfoKHR pSurfaceCreateInfo) {
+VkResult Vulkan::Compositor::co_vkCreateVulkanAndroidSurface(VkInstance pInstance, const VkAndroidSurfaceCreateInfoKHR pSurfaceCreateInfo) {
     if (vkCreateAndroidSurfaceKHR(_instance, &pSurfaceCreateInfo, nullptr, &_surface) != VK_SUCCESS) {
         __android_log_print(ANDROID_LOG_ERROR, "VulkanCompositor", "Failed to create android surface");
     } else {
@@ -26,7 +26,7 @@ VkResult Vulkan::Compositor::vkCreateVulkanAndroidSurface(VkInstance pInstance, 
     }
 }
 
-VkResult Vulkan::Compositor::vkCreateInstance(const VkInstanceCreateInfo* pCreateInfo, const VkAllocationCallbacks* pAllocator, VkInstance* pInstance) {
+VkResult Vulkan::Compositor::co_vkCreateInstance(const VkInstanceCreateInfo* pCreateInfo, const VkAllocationCallbacks* pAllocator, VkInstance* pInstance) {
     if (vkCreateInstance(pCreateInfo, nullptr, pInstance) != VK_SUCCESS) {
         __android_log_print(ANDROID_LOG_ERROR, "VulkanCompositor", "Failed to create vulkan instance");
     } else {
@@ -51,20 +51,27 @@ void Vulkan::Compositor::init_vulkan() {
         .enabledExtensionCount = static_cast<uint32_t>(required_extensions.size())
    };
    
-   vkCreateInstance(&createInfo, nullptr, &_instance);
+   co_vkCreateInstance(&createInfo, nullptr, &_instance);
    
    VkAndroidSurfaceCreateInfoKHR surfaceCreateInfo = {
        .sType = VK_STRUCTURE_TYPE_ANDROID_SURFACE_CREATE_INFO_KHR,
        .window = window
    };
    
-   vkCreateVulkanAndroidSurface(_instance, surfaceCreateInfo);
+   co_vkCreateVulkanAndroidSurface(_instance, surfaceCreateInfo);
    
 }
 
 void Vulkan::Compositor::draw() {
-    // receive new images to draw 
-    external_mem_android.recv_image_buffers(COMPOSITOR_SOCK_FD);
+    /** receive new images to draw
+     */
+     
+    /** 
+     * @brief receive buffers from compositor client sock
+     * @note is generating error `Bad file descriptor because sock is empty`
+     */
+     
+    //external_mem_android.recv_image_buffers(COMPOSITOR_SOCK_FD);
     
     
 }
@@ -86,10 +93,10 @@ void Vulkan::Compositor::init(JNIEnv *env, jobject surface) {
     
      __android_log_print(ANDROID_LOG_INFO, "VulkanCompositor", "ANativeWindow created successfully");
     
-    //init_vulkan();
+    init_vulkan();
     
     // alloc buffers
-    //allocate_buffers();
+    external_mem_android.allocate_buffers();
     
     // run compositor
     //run();

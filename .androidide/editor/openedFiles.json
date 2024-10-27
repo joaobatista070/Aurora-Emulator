@@ -1,22 +1,7 @@
 {
   "allFiles": [
     {
-      "file": "/data/data/com.itsaky.androidide/files/home/ProjectAurora/app/src/main/cpp/compositor/vulkan/co_device.h",
-      "selection": {
-        "end": {
-          "column": 32,
-          "index": 387,
-          "line": 19
-        },
-        "start": {
-          "column": 32,
-          "index": 387,
-          "line": 19
-        }
-      }
-    },
-    {
-      "file": "/data/data/com.itsaky.androidide/files/home/ProjectAurora/app/src/main/cpp/native-lib.cpp",
+      "file": "/storage/emulated/0/AndroidIDEProjects/ProjectAurora/app/src/main/java/com/project_aurora/emu/overlay/XkeyCodes.kt",
       "selection": {
         "end": {
           "column": 0,
@@ -31,20 +16,230 @@
       }
     },
     {
-      "file": "/data/data/com.itsaky.androidide/files/home/ProjectAurora/.gitignore",
+      "file": "/storage/emulated/0/AndroidIDEProjects/ProjectAurora/app/src/main/java/com/project_aurora/emu/viewmodel/LogViewModel.kt",
       "selection": {
         "end": {
-          "column": 18,
-          "index": 1497,
-          "line": 89
+          "column": 0,
+          "index": 670,
+          "line": 22
         },
         "start": {
-          "column": 18,
-          "index": 1497,
-          "line": 89
+          "column": 0,
+          "index": 670,
+          "line": 22
+        }
+      }
+    },
+    {
+      "file": "/storage/emulated/0/AndroidIDEProjects/ProjectAurora/app/build.gradle.kts",
+      "selection": {
+        "end": {
+          "column": 19,
+          "index": 303,
+          "line": 14
+        },
+        "start": {
+          "column": 19,
+          "index": 303,
+          "line": 14
+        }
+      }
+    },
+    {
+      "file": "/storage/emulated/0/AndroidIDEProjects/ProjectAurora/app/src/main/java/com/project_aurora/emu/ui/fragments/SettingsFragment.kt",
+      "selection": {
+        "end": {
+          "column": 17,
+          "index": 2415,
+          "line": 64
+        },
+        "start": {
+          "column": 17,
+          "index": 2415,
+          "line": 64
+        }
+      }
+    },
+    {
+      "file": "/storage/emulated/0/AndroidIDEProjects/ProjectAurora/app/src/main/AndroidManifest.xml",
+      "selection": {
+        "end": {
+          "column": 46,
+          "index": 298,
+          "line": 9
+        },
+        "start": {
+          "column": 46,
+          "index": 298,
+          "line": 9
+        }
+      }
+    },
+    {
+      "file": "/storage/emulated/0/AndroidIDEProjects/ProjectAurora/app/src/main/cpp/CMakeLists.txt",
+      "selection": {
+        "end": {
+          "column": 0,
+          "index": 0,
+          "line": 0
+        },
+        "start": {
+          "column": 0,
+          "index": 0,
+          "line": 0
+        }
+      }
+    },
+    {
+      "file": "/storage/emulated/0/AndroidIDEProjects/ProjectAurora/app/src/main/cpp/native-lib.cpp",
+      "selection": {
+        "end": {
+          "column": 0,
+          "index": 0,
+          "line": 0
+        },
+        "start": {
+          "column": 0,
+          "index": 0,
+          "line": 0
+        }
+      }
+    },
+    {
+      "file": "/storage/emulated/0/AndroidIDEProjects/ProjectAurora/app/src/main/cpp/compositor/vulkan/co_device.cpp",
+      "selection": {
+        "end": {
+          "column": 0,
+          "index": 0,
+          "line": 0
+        },
+        "start": {
+          "column": 0,
+          "index": 0,
+          "line": 0
+        }
+      }
+    },
+    {
+      "file": "/storage/emulated/0/AndroidIDEProjects/ProjectAurora/app/src/main/java/com/project_aurora/emu/ui/fragments/HomeFragment.kt",
+      "selection": {
+        "end": {
+          "column": 0,
+          "index": 1753,
+          "line": 51
+        },
+        "start": {
+          "column": 0,
+          "index": 1753,
+          "line": 51
+        }
+      }
+    },
+    {
+      "file": "/storage/emulated/0/AndroidIDEProjects/ProjectAurora/app/src/main/res/xml/accessibility_service_config.xml",
+      "selection": {
+        "end": {
+          "column": 0,
+          "index": 0,
+          "line": 0
+        },
+        "start": {
+          "column": 0,
+          "index": 0,
+          "line": 0
+        }
+      }
+    },
+    {
+      "file": "/storage/emulated/0/AndroidIDEProjects/ProjectAurora/app/src/main/res/xml/backup_rules.xml",
+      "selection": {
+        "end": {
+          "column": 0,
+          "index": 0,
+          "line": 0
+        },
+        "start": {
+          "column": 0,
+          "index": 0,
+          "line": 0
+        }
+      }
+    },
+    {
+      "file": "/storage/emulated/0/AndroidIDEProjects/ProjectAurora/app/src/main/java/com/project_aurora/emu/ui/main/MainActivity.kt",
+      "selection": {
+        "end": {
+          "column": 0,
+          "index": 0,
+          "line": 0
+        },
+        "start": {
+          "column": 0,
+          "index": 0,
+          "line": 0
+        }
+      }
+    },
+    {
+      "file": "/storage/emulated/0/AndroidIDEProjects/ProjectAurora/app/src/main/java/com/project_aurora/emu/ui/main/ThemeProvider.kt",
+      "selection": {
+        "end": {
+          "column": 82,
+          "index": 638,
+          "line": 14
+        },
+        "start": {
+          "column": 82,
+          "index": 638,
+          "line": 14
+        }
+      }
+    },
+    {
+      "file": "/storage/emulated/0/AndroidIDEProjects/ProjectAurora/app/src/main/res/values/colors.xml",
+      "selection": {
+        "end": {
+          "column": 0,
+          "index": 0,
+          "line": 0
+        },
+        "start": {
+          "column": 0,
+          "index": 0,
+          "line": 0
+        }
+      }
+    },
+    {
+      "file": "/storage/emulated/0/AndroidIDEProjects/ProjectAurora/app/src/main/res/values/dimens.xml",
+      "selection": {
+        "end": {
+          "column": 0,
+          "index": 0,
+          "line": 0
+        },
+        "start": {
+          "column": 0,
+          "index": 0,
+          "line": 0
+        }
+      }
+    },
+    {
+      "file": "/storage/emulated/0/AndroidIDEProjects/ProjectAurora/app/src/main/res/values/strings.xml",
+      "selection": {
+        "end": {
+          "column": 11,
+          "index": 50,
+          "line": 1
+        },
+        "start": {
+          "column": 11,
+          "index": 50,
+          "line": 1
         }
       }
     }
   ],
-  "selectedFile": "/data/data/com.itsaky.androidide/files/home/ProjectAurora/.gitignore"
+  "selectedFile": "/storage/emulated/0/AndroidIDEProjects/ProjectAurora/app/src/main/res/values/strings.xml"
 }

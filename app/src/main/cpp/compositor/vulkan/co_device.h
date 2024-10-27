@@ -112,9 +112,9 @@ public:
     
     std::vector<VkExtensionProperties> m_ext_props;
     
-    VkResult vkCreateVulkanAndroidSurface(VkInstance pInstance, const VkAndroidSurfaceCreateInfoKHR pSurfaceCreateInfo);
-    VkResult vkCreateInstance(const VkInstanceCreateInfo* pCreateInfo, const VkAllocationCallbacks* pAllocator, VkInstance* pInstance);
-    VkResult vkCreateDevice(VkPhysicalDevice physicalDevice, const VkDeviceCreateInfo* pCreateInfo, const VkAllocationCallbacks* pAllocator, VkDevice* pDevice);
+    VkResult co_vkCreateVulkanAndroidSurface(VkInstance pInstance, const VkAndroidSurfaceCreateInfoKHR pSurfaceCreateInfo);
+    VkResult co_vkCreateInstance(const VkInstanceCreateInfo* pCreateInfo, const VkAllocationCallbacks* pAllocator, VkInstance* pInstance);
+    VkResult co_vkCreateDevice(VkPhysicalDevice physicalDevice, const VkDeviceCreateInfo* pCreateInfo, const VkAllocationCallbacks* pAllocator, VkDevice* pDevice);
     
     };
 }

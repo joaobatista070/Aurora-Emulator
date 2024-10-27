@@ -17,5 +17,3 @@ dependencyResolutionManagement {
 rootProject.name = "Project Aurora"
 
 include(":app")
-include(":loader:stub")
-include(":loader")

@@ -27,7 +27,7 @@ void ExternalMemoryAndroid::recv_image_buffers(int sock_fd) {
         }
     };
         
-    ExternalMemoryAndroid::receive_buffer(&new_img.description, &new_img.ahb, sock_fd);
+    ExternalMemoryAndroid::receive_buffer(new_img, sock_fd);
     
     new_img.allocateBuffer();
     //add to image buffers 

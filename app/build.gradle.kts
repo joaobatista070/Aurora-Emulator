@@ -12,7 +12,7 @@ android {
     
     defaultConfig {
         applicationId = "com.project_aurora.emu"
-        minSdk = 28
+        minSdk = 29
         targetSdk = 33
         versionCode = 1
         versionName = "1.0"
@@ -54,18 +54,6 @@ android {
     packagingOptions {
         resources {
             excludes += "/META-INF/{AL2.0,LGPL2.1}"
-        }
-    }
-    
-    sourceSets {
-    getByName("main") {
-        jniLibs.srcDirs("libs")
-        }
-    }
-
-    sourceSets {
-    getByName("main") {
-        aidl.srcDirs("src/main/aidl")
         }
     }
     
@@ -114,5 +102,5 @@ dependencies {
     implementation("com.google.android.material:material:1.9.0")
     implementation("net.lingala.zip4j:zip4j:2.11.5")
     implementation("org.jetbrains.kotlin:kotlin-stdlib-jdk8:1.9.24")
-    compileOnly(project(":loader:stub"))
+    
 }

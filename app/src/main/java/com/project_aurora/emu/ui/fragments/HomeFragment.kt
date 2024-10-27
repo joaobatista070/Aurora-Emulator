@@ -26,7 +26,6 @@ import android.content.Intent
 
 import com.project_aurora.emu.ui.adapters.AdapterSettings
 import com.project_aurora.emu.R
-import com.project_aurora.emu.XserverActivity
 import com.project_aurora.emu.compositor.VulkanWrapperActivity
 import com.project_aurora.emu.databinding.FragmentHomeBinding
 

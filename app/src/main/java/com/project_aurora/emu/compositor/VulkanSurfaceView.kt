@@ -13,14 +13,20 @@ import android.graphics.Rect
 import android.graphics.RectF
 import android.graphics.Typeface
 import android.graphics.Bitmap
-import com.project_aurora.emu.NativeCode
+import android.graphics.BitmapFactory
 
+import com.project_aurora.emu.NativeCode
+import com.project_aurora.emu.compositor.Pointer
+import com.project_aurora.emu.R
 
 class VulkanSurfaceView @JvmOverloads constructor(
     context: Context,
     attrs: AttributeSet? = null,
     defStyleAttr: Int = 0
 ) : SurfaceView(context, attrs, defStyleAttr), SurfaceHolder.Callback {
+
+    var cursor = Pointer(BitmapFactory.decodeResource(resources, R.drawable.cursor))
+    
     var logPaint = Paint().apply {
         color = Color.WHITE
         textSize = 18f
@@ -49,6 +55,7 @@ class VulkanSurfaceView @JvmOverloads constructor(
         
         canvas.let { c ->
             callback.invoke("DrawCalls Initialized")
+            cursor.createCursor(c)
             c.drawText("API: Vulkan", 100f, 100f, logPaint)
             holder.unlockCanvasAndPost(c)
             callback.invoke("DrawCalls Terminated")

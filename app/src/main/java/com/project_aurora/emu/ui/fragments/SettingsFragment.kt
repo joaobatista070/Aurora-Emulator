@@ -7,7 +7,7 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.RecyclerView
-import com.project_aurora.emu.LoriePreferences
+
 import com.project_aurora.emu.R
 import com.project_aurora.emu.databinding.FragmentSettingsBinding
 import com.project_aurora.emu.model.SettingsModel
@@ -60,18 +60,6 @@ class SettingsFragment : Fragment() {
                         requireContext()
                             .startActivity(
                                 Intent(requireContext(), LogActivity::class.java)
-                            )
-                    }
-                ),
-                SettingsModel(
-                    getString(R.string.preferences_xserver_title),
-                    getString(R.string.preferences_xserver_description),
-                    R.drawable.ic_display,
-                    {
-                        // onclick
-                        requireContext()
-                            .startActivity(
-                                Intent(requireContext(), LoriePreferences::class.java)
                             )
                     }
                 )

@@ -37,24 +37,18 @@ class ExternalMemoryAndroid {
         return retval != 0 ? false : true;
     }
     
-    static bool receive_buffer(AHardwareBuffer_Desc* out_description, AHardwareBuffer** out_ahb, int sock_fd) {
-        AHardwareBuffer* recv_ahb = nullptr;
-        AHardwareBuffer_Desc recv_desc = {};
+    static bool receive_buffer(ExternalMemoryAndroid::image_ahb_t img_ahb, int sock_fd) {
         
+        int retval = AHardwareBuffer_recvHandleFromUnixSocket(sock_fd, &img_ahb.ahb);
         
-        int retval = AHardwareBuffer_recvHandleFromUnixSocket(sock_fd, &recv_ahb);
+        AHardwareBuffer_describe(img_ahb.ahb, &img_ahb.description);
         
-        
-        AHardwareBuffer_describe(recv_ahb, &recv_desc);
-        
-        if (retval != 0 || recv_ahb == nullptr) {
+        if (retval != 0 || img_ahb.ahb == nullptr) {
             throw std::runtime_error("Failed to recv ahb`s android.");
         }
         
-        *out_ahb = recv_ahb;
-        *out_description = recv_desc;
         
-        return retval != 0 || recv_ahb == nullptr ? false : true;
+        return retval != 0 || img_ahb.ahb == nullptr ? false : true;
     }
     
     /**

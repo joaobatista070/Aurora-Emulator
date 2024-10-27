@@ -12,7 +12,7 @@ class ThemeProvider(private val context: Context) {
         when(nightModeFlags) {
             Configuration.UI_MODE_NIGHT_NO -> {
                 if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
-                    window.statusBarColor = context.getColor(R.color.aurora_background)
+                    window.statusBarColor = context.getColor(R.color.aurora_purple)
                 }
             }
             Configuration.UI_MODE_NIGHT_YES -> { //Night Mode
