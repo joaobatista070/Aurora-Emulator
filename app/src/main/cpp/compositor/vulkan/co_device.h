@@ -1,11 +1,13 @@
 #pragma once
 
 #include <jni.h>
+#include <android/log.h>
 #include <android/native_window_jni.h>
 #include <vulkan/vulkan.h>
 #include <vulkan/vulkan_android.h>
 #include <android/hardware_buffer.h>
 #include <sys/types.h>
+#include <sys/stat.h>
 #include <sys/socket.h>
 #include <sys/un.h>
 #include <unistd.h>
@@ -14,27 +16,6 @@
 #include <iostream>
 
 #include "co_hardware_buffers.h"
-
-
-/** 
- * Get funcs from system driver 
- */ 
-namespace VulkanSystemDriver {
-    typedef struct driver_module_t {
-        public:
-        void *libvulkan;
-        
-        template <typename T>
-        T get_instance_proc_addr(const char *name) {
-            T func = reinterpret_cast<T>(dlsym( libvulkan, name));
-            if (func == nullptr) {
-                // not found handle some error
-            }
-            
-            return func;
-        }
-    } driver_module_t;
-}    
 
 namespace Vulkan {
     

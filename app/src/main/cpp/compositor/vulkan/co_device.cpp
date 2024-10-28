@@ -17,7 +17,6 @@ Vulkan::Compositor Vulkan::Compositor::compositor;
 
 ExternalMemoryAndroid external_mem_android;
 
-
 VkResult Vulkan::Compositor::co_vkCreateVulkanAndroidSurface(VkInstance pInstance, const VkAndroidSurfaceCreateInfoKHR pSurfaceCreateInfo) {
     if (vkCreateAndroidSurfaceKHR(_instance, &pSurfaceCreateInfo, nullptr, &_surface) != VK_SUCCESS) {
         __android_log_print(ANDROID_LOG_ERROR, "VulkanCompositor", "Failed to create android surface");

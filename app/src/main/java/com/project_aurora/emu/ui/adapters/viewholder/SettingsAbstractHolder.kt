@@ -14,17 +14,18 @@ import com.project_aurora.emu.models.PreferenceType
 import com.google.android.material.materialswitch.MaterialSwitch
 
 
-class SettingsAbstractHolder(private val itemView : View) : RecyclerView.ViewHolder(itemView) {
+class SettingsAbstractHolder(private val itemView : View) : GenericHolder<PreferencesModel>(itemView) {
    var settingsName: TextView = itemView.findViewById(R.id.text_setting_name)
    var settingsDescription: TextView = itemView.findViewById(R.id.text_setting_description)
    var content: TextView = itemView.findViewById(R.id.text_setting_value)
    
-   fun bind(preferencesModel: PreferencesModel) {
-            settingsName.text = preferencesModel.preferenceTitle
-            settingsDescription.text = preferencesModel.preferenceSummary 
-            content.text = preferencesModel.content
-            itemView.setOnClickListener {
-                preferencesModel.onClickListener.invoke()
-            }
+   override fun bind(preferencesModel: PreferencesModel) {
+        settingsName.text = preferencesModel.preferenceTitle
+        settingsDescription.text = preferencesModel.preferenceSummary 
+        content.text = preferencesModel.content
+        
+        itemView.setOnClickListener {
+            preferencesModel.onClickListener.invoke()
         }
+    }
 }

@@ -1,3 +1,4 @@
+import com.android.build.api.dsl.Packaging
 
 plugins {
     id("com.android.application")
@@ -54,6 +55,15 @@ android {
     packagingOptions {
         resources {
             excludes += "/META-INF/{AL2.0,LGPL2.1}"
+        }
+        
+        // Adrenotools see docs
+        dex {
+            useLegacyPackaging = true
+        }
+        
+        jniLibs {
+            useLegacyPackaging = true
         }
     }
     
