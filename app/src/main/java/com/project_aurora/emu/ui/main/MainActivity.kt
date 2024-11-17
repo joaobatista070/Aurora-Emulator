@@ -30,7 +30,6 @@ import androidx.core.content.ContextCompat
 import com.project_aurora.emu.databinding.ActivityMainBinding
 import com.project_aurora.emu.coreutils.AsyncTask
 import com.project_aurora.emu.coreutils.DispatchersType
-import com.project_aurora.emu.coreutils.ShellLoader
 import com.project_aurora.emu.ui.fragments.HomeFragment
 import com.project_aurora.emu.ui.fragments.SettingsFragment
 import com.project_aurora.emu.viewmodel.MainViewModel
@@ -45,18 +44,22 @@ public class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         _binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
+        
         ThemeProvider(this).apply {
             defineStatusBarColor(window)
         }
         
-        viewModel = ViewModelProvider(this).get(MainViewModel::class.java)
+        viewModel = ViewModelProvider(this) [MainViewModel::class.java]
         
         val navHostFragment = supportFragmentManager.findFragmentById(R.id.nav_host_fragment) as NavHostFragment
+        val bottomNavigation = findViewById(R.id.bottomNavigation) as NavigationBarView
         val navController = navHostFragment.navController
+        
+        bottomNavigation.setupWithNavController(navController)
         
         viewModel.apply {
             extractResources(this@MainActivity, binding)
-            setUpNavigation(navController, binding)
+            //setUpNavigation(navController, binding)
         }
     }
 

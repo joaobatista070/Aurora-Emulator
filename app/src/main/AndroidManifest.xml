@@ -57,7 +57,7 @@
 
         <activity
             android:theme="@style/Theme.Aurora.Base"
-            android:name=".compositor.VulkanWrapperActivity"
+            android:name=".compositor.CoActivity"
             android:launchMode="singleTop"
             android:exported="true" />
 

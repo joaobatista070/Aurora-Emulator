@@ -1,9 +1,9 @@
 #include "co_driver.h"
 
-void CustomDriver::replaceDriver(const std::string &path, const char *hooksDir, const char *driverName) {
+void VulkanDriver::driver_module_t::replaceDriver(const std::string &path, const char *hooksDir, const char *driverName) {
     mkdir( ( path + "tmp" ).c_str(), S_IRWXU | S_IRWXG );
 
-    void *libVulkan = adrenotools_open_libvulkan( RTLD_NOW | RTLD_LOCAL // dlopen mode
+    libVulkan = adrenotools_open_libvulkan( RTLD_NOW | RTLD_LOCAL // dlopen mode
         , ADRENOTOOLS_DRIVER_CUSTOM // Feature flags
         , ( path + "tmp" ).c_str() // Tmp dir for if api < 29
         , hooksDir // Native lib dir

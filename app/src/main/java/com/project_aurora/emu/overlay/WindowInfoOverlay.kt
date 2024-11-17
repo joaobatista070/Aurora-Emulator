@@ -16,6 +16,7 @@ import android.widget.FrameLayout
 class WindowInfoOverlay(ctx: Context) {
     private var WindowInfoView : View? = null
     private val context = ctx
+    
     init {
     
     }

@@ -26,7 +26,7 @@ import android.content.Intent
 
 import com.project_aurora.emu.ui.adapters.AdapterSettings
 import com.project_aurora.emu.R
-import com.project_aurora.emu.compositor.VulkanWrapperActivity
+import com.project_aurora.emu.compositor.CoActivity as Compositor
 import com.project_aurora.emu.databinding.FragmentHomeBinding
 
 class HomeFragment : Fragment() {
@@ -42,7 +42,7 @@ class HomeFragment : Fragment() {
         _binding = FragmentHomeBinding.inflate(layoutInflater, container, false)
         
         binding.fabDesktop.setOnClickListener { 
-            requireContext().startActivity(Intent(requireContext(), VulkanWrapperActivity::class.java))
+            requireContext().startActivity(Intent(requireContext(), Compositor::class.java))
         }
         
         return binding.root

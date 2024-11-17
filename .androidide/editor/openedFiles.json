@@ -1,22 +1,52 @@
 {
   "allFiles": [
     {
-      "file": "/storage/emulated/0/AndroidIDEProjects/ProjectAurora/app/src/main/java/com/project_aurora/emu/ui/activities/LogActivity.kt",
+      "file": "/data/data/com.itsaky.androidide/files/home/ProjectAurora/app/build.gradle.kts",
       "selection": {
         "end": {
-          "column": 13,
-          "index": 1047,
-          "line": 27
+          "column": 19,
+          "index": 346,
+          "line": 15
         },
         "start": {
-          "column": 13,
-          "index": 1047,
-          "line": 27
+          "column": 19,
+          "index": 346,
+          "line": 15
         }
       }
     },
     {
-      "file": "/storage/emulated/0/AndroidIDEProjects/ProjectAurora/app/src/main/java/com/project_aurora/emu/ui/activities/SystemShellActivity.kt",
+      "file": "/data/data/com.itsaky.androidide/files/home/ProjectAurora/app/src/main/AndroidManifest.xml",
+      "selection": {
+        "end": {
+          "column": 8,
+          "index": 2170,
+          "line": 50
+        },
+        "start": {
+          "column": 8,
+          "index": 2170,
+          "line": 50
+        }
+      }
+    },
+    {
+      "file": "/data/data/com.itsaky.androidide/files/home/ProjectAurora/app/src/main/java/com/project_aurora/emu/compositor/CoActivity.kt",
+      "selection": {
+        "end": {
+          "column": 16,
+          "index": 208,
+          "line": 6
+        },
+        "start": {
+          "column": 6,
+          "index": 198,
+          "line": 6
+        }
+      }
+    },
+    {
+      "file": "/data/data/com.itsaky.androidide/files/home/ProjectAurora/app/src/main/cpp/native-lib.cpp",
       "selection": {
         "end": {
           "column": 0,
@@ -31,37 +61,37 @@
       }
     },
     {
-      "file": "/storage/emulated/0/AndroidIDEProjects/ProjectAurora/app/src/main/java/com/project_aurora/emu/ui/adapters/viewholder/GenericHolder.kt",
+      "file": "/data/data/com.itsaky.androidide/files/home/ProjectAurora/app/src/main/java/com/project_aurora/emu/AuroraApplication.kt",
       "selection": {
         "end": {
-          "column": 9,
-          "index": 423,
+          "column": 8,
+          "index": 361,
+          "line": 19
+        },
+        "start": {
+          "column": 8,
+          "index": 361,
+          "line": 19
+        }
+      }
+    },
+    {
+      "file": "/data/data/com.itsaky.androidide/files/home/ProjectAurora/app/src/main/res/layout/activity_compositor_wrapper.xml",
+      "selection": {
+        "end": {
+          "column": 40,
+          "index": 517,
           "line": 12
         },
         "start": {
-          "column": 9,
-          "index": 423,
+          "column": 40,
+          "index": 517,
           "line": 12
         }
       }
     },
     {
-      "file": "/storage/emulated/0/AndroidIDEProjects/ProjectAurora/app/src/main/java/com/project_aurora/emu/ui/adapters/viewholder/SettingsAbstractHolder.kt",
-      "selection": {
-        "end": {
-          "column": 90,
-          "index": 613,
-          "line": 16
-        },
-        "start": {
-          "column": 90,
-          "index": 613,
-          "line": 16
-        }
-      }
-    },
-    {
-      "file": "/storage/emulated/0/AndroidIDEProjects/ProjectAurora/app/src/main/java/com/project_aurora/emu/ui/adapters/viewholder/SettingsViewHolder.kt",
+      "file": "/data/data/com.itsaky.androidide/files/home/ProjectAurora/app/src/main/java/com/project_aurora/emu/compositor/CoSurface.kt",
       "selection": {
         "end": {
           "column": 0,
@@ -76,155 +106,20 @@
       }
     },
     {
-      "file": "/storage/emulated/0/AndroidIDEProjects/ProjectAurora/app/src/main/cpp/compositor/vulkan/co_device.cpp",
+      "file": "/data/data/com.itsaky.androidide/files/home/ProjectAurora/app/src/main/java/com/project_aurora/emu/NativeCode.kt",
       "selection": {
         "end": {
-          "column": 0,
-          "index": 418,
-          "line": 18
+          "column": 51,
+          "index": 167,
+          "line": 7
         },
         "start": {
-          "column": 0,
-          "index": 418,
-          "line": 18
-        }
-      }
-    },
-    {
-      "file": "/storage/emulated/0/AndroidIDEProjects/ProjectAurora/app/src/main/cpp/compositor/vulkan/co_hardware_buffers.cpp",
-      "selection": {
-        "end": {
-          "column": 0,
-          "index": 0,
-          "line": 0
-        },
-        "start": {
-          "column": 0,
-          "index": 0,
-          "line": 0
-        }
-      }
-    },
-    {
-      "file": "/storage/emulated/0/AndroidIDEProjects/ProjectAurora/app/src/main/cpp/compositor/vulkan/co_hardware_buffers.h",
-      "selection": {
-        "end": {
-          "column": 0,
-          "index": 0,
-          "line": 0
-        },
-        "start": {
-          "column": 0,
-          "index": 0,
-          "line": 0
-        }
-      }
-    },
-    {
-      "file": "/storage/emulated/0/AndroidIDEProjects/ProjectAurora/app/src/main/cpp/compositor/vulkan/co_device.h",
-      "selection": {
-        "end": {
-          "column": 0,
-          "index": 361,
-          "line": 16
-        },
-        "start": {
-          "column": 0,
-          "index": 361,
-          "line": 16
-        }
-      }
-    },
-    {
-      "file": "/storage/emulated/0/AndroidIDEProjects/ProjectAurora/app/src/main/cpp/CMakeLists.txt",
-      "selection": {
-        "end": {
-          "column": 0,
-          "index": 0,
-          "line": 0
-        },
-        "start": {
-          "column": 0,
-          "index": 0,
-          "line": 0
-        }
-      }
-    },
-    {
-      "file": "/storage/emulated/0/AndroidIDEProjects/ProjectAurora/app/src/main/cpp/deps/libadrenotools/include/adrenotools/driver.h",
-      "selection": {
-        "end": {
-          "column": 61,
-          "index": 2031,
-          "line": 27
-        },
-        "start": {
-          "column": 75,
-          "index": 311,
-          "line": 14
-        }
-      }
-    },
-    {
-      "file": "/storage/emulated/0/AndroidIDEProjects/ProjectAurora/app/src/main/cpp/deps/libadrenotools/src/driver.cpp",
-      "selection": {
-        "end": {
-          "column": 0,
-          "index": 0,
-          "line": 0
-        },
-        "start": {
-          "column": 0,
-          "index": 0,
-          "line": 0
-        }
-      }
-    },
-    {
-      "file": "/storage/emulated/0/AndroidIDEProjects/ProjectAurora/app/build.gradle.kts",
-      "selection": {
-        "end": {
-          "column": 37,
-          "index": 1410,
-          "line": 61
-        },
-        "start": {
-          "column": 37,
-          "index": 1410,
-          "line": 61
-        }
-      }
-    },
-    {
-      "file": "/storage/emulated/0/AndroidIDEProjects/ProjectAurora/app/src/main/cpp/compositor/vulkan/co_driver.h",
-      "selection": {
-        "end": {
-          "column": 9,
-          "index": 1196,
-          "line": 45
-        },
-        "start": {
-          "column": 9,
-          "index": 1196,
-          "line": 45
-        }
-      }
-    },
-    {
-      "file": "/storage/emulated/0/AndroidIDEProjects/ProjectAurora/app/src/main/cpp/compositor/vulkan/co_driver.cpp",
-      "selection": {
-        "end": {
-          "column": 2,
-          "index": 943,
-          "line": 21
-        },
-        "start": {
-          "column": 2,
-          "index": 943,
-          "line": 21
+          "column": 51,
+          "index": 167,
+          "line": 7
         }
       }
     }
   ],
-  "selectedFile": "/storage/emulated/0/AndroidIDEProjects/ProjectAurora/app/src/main/cpp/compositor/vulkan/co_driver.cpp"
+  "selectedFile": "/data/data/com.itsaky.androidide/files/home/ProjectAurora/app/src/main/java/com/project_aurora/emu/NativeCode.kt"
 }

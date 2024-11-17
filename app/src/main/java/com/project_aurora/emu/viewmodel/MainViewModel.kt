@@ -16,20 +16,20 @@ import com.project_aurora.emu.coreutils.ZipFileExtractor
 import com.project_aurora.emu.coreutils.AsyncTask
 import com.project_aurora.emu.coreutils.DispatchersType
 
+
+interface IPath {
+    /** Root Files Extract Location */
+    var zipPath: String
+}
+
 class MainViewModel : ViewModel() {
     private val asyncTasker = AsyncTask()
-    companion object FilePath {
+    
+    companion object Path {
         public val appRootDir = "/data/data/com.project_aurora.emu/files"
         public val usrDir = File("$appRootDir/usr").apply { mkdirs() }
-        public val wineFolder = File("$appRootDir/wine")
-        public val homeDir = File("$appRootDir/files/home").apply { mkdirs() }
+        public val homeDir = File("$appRootDir/home").apply { mkdirs() }
         public val tmpDir = File("$usrDir/tmp").apply { mkdirs() }
-        public val wineUtilsFolder = File("$appRootDir/wine-utils")
-        public val wine = File("${wineFolder.toString()}/bin/wine")
-        public val pulseAudio = File("$usrDir/bin/pulseaudio")
-        public val virgl_socket = File("$usrDir/bin/virgl_test_server")
-        public val box64 = File("$usrDir/bin/box64")
-        public val vkcube = File("$usrDir/bin/vkcube")
         public val xkbRootDir = File("$usrDir/share/X11/xkb")
     }
 
@@ -41,7 +41,9 @@ class MainViewModel : ViewModel() {
         asyncTasker.newCoroutine("res", {
             if(!usrDir.exists()) {
                  ZipFileExtractor().extractZip(
-                    "storage/emulated/0/usr.zip",
+                    object : IPath {
+                        override var zipPath: String = "NULL"
+                    }.zipPath,
                     appRootDir,
                     binding.progressExtractBar,
                     binding.updateExtractProgress,

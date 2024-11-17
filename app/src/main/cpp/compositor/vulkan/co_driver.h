@@ -21,6 +21,11 @@
 namespace VulkanDriver {
     typedef struct driver_module_t {
         public:
+        
+        struct dispatch_table {
+            PFN_vkCreateInstance pCreateInstance;
+        }
+        
         void *libvulkan;
         
         /**
@@ -41,8 +46,20 @@ namespace VulkanDriver {
             if (!libvulkan) {}
         }
         
+        /** 
+         * Driver injection
+         */
+        void replaceDriver(
+            const std::string &path // Custom Driver dir
+            , const char *hooksDir // Native Lib Dir 
+            , const char *driverName // Name of Custom Driver
+        )
+        
+        /** 
+         * Populate dispatch table
+         */
         void handle(void *libvulkan) {
-            
+            pCreateInstance = get_instance_proc_addr<PFN_vkCreateInstance>("vkCreateInstance");
         }
         
         template <typename T>
@@ -66,8 +83,3 @@ namespace VulkanDriver {
         
     } driver_module_t;
 }    
-
-namespace CustomDriver {
-    void replaceDriver( const std::string &path, const char *hooksDir, const char *driverName )
-}
-

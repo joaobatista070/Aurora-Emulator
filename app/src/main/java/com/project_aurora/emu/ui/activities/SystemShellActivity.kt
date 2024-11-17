@@ -20,14 +20,12 @@ import android.view.inputmethod.EditorInfo
 import android.content.Context
 import android.text.Editable
 import android.view.inputmethod.InputMethodManager
-import com.project_aurora.emu.coreutils.ShellLoader
 import android.util.Log
 
 public class SystemShellActivity : AppCompatActivity() {
 
     private var _binding: ActivitySystemShellBinding? = null
     private val binding: ActivitySystemShellBinding get() = _binding!!
-    private val mShellClient = ShellLoader()
     private var stdErr: String? = null
     private var stdOut: String? = null
     private var lastCommands: MutableList<String> = mutableListOf("")

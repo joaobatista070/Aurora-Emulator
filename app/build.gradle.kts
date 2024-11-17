@@ -13,7 +13,7 @@ android {
     
     defaultConfig {
         applicationId = "com.project_aurora.emu"
-        minSdk = 29
+        minSdk = 28
         targetSdk = 33
         versionCode = 1
         versionName = "1.0"
@@ -83,6 +83,49 @@ android {
 tasks.withType<org.jetbrains.kotlin.gradle.tasks.KotlinCompile>().configureEach {
     kotlinOptions.jvmTarget = "11"
 }
+
+
+project.tasks.register("buildMesaWrapper") {
+    doLast {
+        var shellWrapper = arrayOf<String>()
+        var path = "src/main/cpp/mesa"
+        if (System.getProperty("os.name") == "Linux") {
+            shellWrapper = arrayOf("/system/bin/sh", "-c")
+        } else {
+            throw RuntimeException("Unsupported operating system")
+        }
+        if (!project.file(path).exists())
+            throw RuntimeException("path does not exist: $path")
+        val buildDir = project.file("$path/build")
+        if (!buildDir.exists()) buildDir.mkdirs()
+        
+        val mesonProcess = ProcessBuilder().command(*shellWrapper, """CPPFLAGS="-DUSE_GNU -U__ANDROID__ -I/include_ndk" LDFLAGS="-L/data/data/com.itsaky.androidide/files/usr/opt/bionic-host/lib64 -landroid-shmem -llog -lcutils" meson setup build-wrapper-android --cross-file=android-arm64 -Dcpp_rtti=false -Dgbm=disabled -Dopengl=false -Dllvm=disabled -Dshared-llvm=disabled -Dplatforms=x11 -Dgallium-drivers= -Dxmlconfig=disabled -Dvulkan-drivers=wrapper --prefix=${buildDir.absolutePath}""")
+            .directory(project.file(path))
+            .start()
+            
+        mesonProcess.inputStream.bufferedReader().lines().forEach { println(it) }
+        mesonProcess.errorStream.bufferedReader().lines().forEach { println(it) }
+        
+        if (mesonProcess.waitFor() != 0)
+            throw RuntimeException("meson failed: ${mesonProcess.exitValue()}\nSTDOUT:\n${mesonProcess.inputStream.reader().readText().trim()}\nSTDERR:\n${mesonProcess.errorStream.reader().readText().trim()}")
+            
+        val ninjaProcess = ProcessBuilder().command(*shellWrapper, "cd build-wrapper-android && ninja -j8 install")
+            .directory(project.file(path))
+            .start()
+            
+        ninjaProcess.inputStream.bufferedReader().lines().forEach { println(it) }
+        ninjaProcess.errorStream.bufferedReader().lines().forEach { println(it) }    
+        if (ninjaProcess.waitFor() != 0)
+            throw RuntimeException("ninja failed: ${ninjaProcess.exitValue()}\nSTDOUT:\n${ninjaProcess.inputStream.reader().readText().trim()}\nSTDERR:\n${ninjaProcess.errorStream.reader().readText().trim()}")
+    }
+    outputs.upToDateWhen { false } // Always run this task
+}
+
+project.tasks.whenTaskAdded (fun(t: Task) {
+    if (t.name == "generateDebugAssets" || t.name == "generateReleaseAssets")
+        t.dependsOn("buildMesaWrapper")
+    }
+)
 
 dependencies {
     // AndroidX dependencies
