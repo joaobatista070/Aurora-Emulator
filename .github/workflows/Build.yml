@@ -1,4 +1,4 @@
-name: Build Gradle App
+name: Build and Upload APK
 
 on:
   push:
@@ -21,16 +21,34 @@ jobs:
         uses: actions/setup-java@v3
         with:
           distribution: 'temurin'
-          java-version: '17' # Modifique para a versão necessária do Java
+          java-version: '17' # Certifique-se de que esta versão do Java é compatível com seu projeto
+
+      - name: Setup Android SDK
+        uses: android-actions/setup-android@v2
+        with:
+          api-level: 34 # Modifique para a versão necessária do SDK
+          build-tools: 34.0.0 # Certifique-se de usar a versão correta das Build Tools
+          ndk: 26.1.10909125 # Ajuste para a versão do NDK necessária ou remova se não for usado
+
+      - name: Accept SDK Licenses
+        run: yes | sdkmanager --licenses
 
       - name: Install Dependencies
         run: ./gradlew dependencies
 
       - name: Build Project
-        run: ./gradlew build
+        run: ./gradlew assembleRelease # Compila a versão release do APK
 
       - name: Archive Build Artifacts
         uses: actions/upload-artifact@v3
         with:
-          name: build-artifacts
-          path: build/libs/
+          name: release-apk
+          path: app/build/outputs/apk/release/*.apk # Caminho do APK gerado
+          
+      - name: Upload APK to GitHub Releases
+        uses: softprops/action-gh-release@v1
+        if: github.ref == 'refs/heads/main'
+        with:
+          files: app/build/outputs/apk/release/*.apk
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
