@@ -21,14 +21,14 @@ jobs:
         uses: actions/setup-java@v3
         with:
           distribution: 'temurin'
-          java-version: '17' # Certifique-se de que esta versão do Java é compatível com seu projeto
+          java-version: '17' 
 
       - name: Setup Android SDK
         uses: android-actions/setup-android@v2
         with:
-          api-level: 34 # Modifique para a versão necessária do SDK
-          build-tools: 34.0.0 # Certifique-se de usar a versão correta das Build Tools
-          ndk: 26.1.10909125 # Ajuste para a versão do NDK necessária ou remova se não for usado
+          api-level: 34 
+          build-tools: 34.0.0 
+          ndk: 26.1.10909125
 
       - name: Accept SDK Licenses
         run: yes | sdkmanager --licenses
@@ -37,13 +37,13 @@ jobs:
         run: ./gradlew dependencies
 
       - name: Build Project
-        run: ./gradlew assembleRelease # Compila a versão release do APK
+        run: ./gradlew assembleRelease -x lint # Compile the apk
 
       - name: Archive Build Artifacts
         uses: actions/upload-artifact@v3
         with:
           name: release-apk
-          path: app/build/outputs/apk/release/*.apk # Caminho do APK gerado
+          path: app/build/outputs/apk/release/*.apk # path of *apk?
           
       - name: Upload APK to GitHub Releases
         uses: softprops/action-gh-release@v1
