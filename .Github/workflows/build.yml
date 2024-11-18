@@ -1,0 +1,36 @@
+name: Build Gradle App
+
+on:
+  push:
+    branches:
+      - main
+  pull_request:
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v3
+
+      - name: Set Gradle Executable Permissions
+        run: chmod +x gradlew
+
+      - name: Setup Java
+        uses: actions/setup-java@v3
+        with:
+          distribution: 'temurin'
+          java-version: '17' # Modifique para a versão necessária do Java
+
+      - name: Install Dependencies
+        run: ./gradlew dependencies
+
+      - name: Build Project
+        run: ./gradlew build
+
+      - name: Archive Build Artifacts
+        uses: actions/upload-artifact@v3
+        with:
+          name: build-artifacts
+          path: build/libs/
